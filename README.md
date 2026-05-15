@@ -11,6 +11,7 @@ Las plataformas de música recomiendan canciones basándose en el historial de e
 ## Objetivo general
 
 Construir un sistema que:
+
 1. Reciba una descripción en lenguaje natural del estado de ánimo
 2. Traduzca esa descripción a características musicales usando Gemini
 3. Clasifique el género y mood aproximado
@@ -26,10 +27,7 @@ graph TD
     B --> C[Clasificador predice género y mood]
     C --> D[KNN busca en subconjunto filtrado]
     D --> E[Top 5 canciones recomendadas]
-
-### **5. Metodología** (explicar las 4 etapas)
-
-```markdown
+```
 ## Metodología
 
 ### Etapa 1: LLM (Gemini)
@@ -54,6 +52,7 @@ Encuentra las 5 canciones más parecidas a la descripción del usuario
 **Registros:** ~20,000 canciones
 
 **Columnas seleccionadas:**
+
 | Columna | Qué significa |
 |---------|---------------|
 | valence | Qué tan triste (0) o feliz (1) es la canción |
@@ -105,19 +104,7 @@ Encuentra las 5 canciones más parecidas a la descripción del usuario
 ## Cómo ejecutar
 
 ### Instalar dependencias
+
 ```bash
 pip install kagglehub pandas scikit-learn google-generativeai gradio python-dotenv
-
-
----
-
-### **10. Integrantes**
-
-```markdown
-## Integrantes
-
-- Miguel Garcia 
-- Juan Ignacio Lotero Franco
-
----
 
