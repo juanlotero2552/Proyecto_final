@@ -1,6 +1,6 @@
 # Music Mood Recommender
 
-##Integrantes
+## Integrantes
 
 - Miguel Garcia
 - Juan Ignacio Lotero Franco
