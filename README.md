@@ -1,5 +1,10 @@
 # Music Mood Recommender
 
+##Integrantes
+
+- Miguel Garcia
+- Juan Ignacio Lotero Franco
+
 ## Planteamiento del problema
 
 Las plataformas de música recomiendan canciones basándose en el historial de escucha, pero no permiten describir en lenguaje natural cómo se siente el usuario.
