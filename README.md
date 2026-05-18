@@ -6,7 +6,24 @@
 **Autores:** Miguel García · Juan Ignacio  
 
 ---
+## Índice
 
+1. [Planteamiento del Problema](#1-planteamiento-del-problema)
+2. [Objetivo General](#2-objetivo-general)
+3. [Metodología](#3-metodología)
+4. [Desarrollo](#4-desarrollo)
+   - 4.1 [Dataset y Procesamiento de Datos](#41-dataset-y-procesamiento-de-datos)
+   - 4.2 [Traducción de Lenguaje Natural a Features (LLM)](#42-traducción-de-lenguaje-natural-a-features-llm)
+   - 4.3 [Clasificadores (Random Forest)](#43-clasificadores-random-forest)
+   - 4.4 [Recomendador KNN](#44-recomendador-knn)
+   - 4.5 [Bot Asistente Musical](#45-bot-asistente-musical)
+   - 4.6 [Interfaz (Streamlit)](#46-interfaz-streamlit)
+   - 4.7 [Archivos entregados](#47-archivos-entregados)
+5. [Resultados](#5-resultados)
+6. [Discusión](#6-discusión)
+7. [Cómo correr el proyecto](#7-cómo-correr-el-proyecto)
+8. [Referencias](#referencias)
+---
 ## 1. Planteamiento del Problema
 
 Los sistemas de recomendación musical modernos, como los de Spotify o Apple Music, dependen en gran medida del historial de escucha del usuario. Esto representa una barrera significativa para usuarios nuevos o en contextos de sesión fría (*cold-start problem*): el sistema no tiene información suficiente para hacer sugerencias relevantes.
@@ -168,29 +185,6 @@ Cada vez que el usuario envía un mensaje, se construye un prompt que incluye:
 - Todas las recomendaciones generadas en la sesión (`contexto_recomendaciones`)
 
 Esto permite que el bot responda preguntas como *"¿cuál de las 5 canciones me recomiendas más?"* o *"¿por qué me salió música electrónica?"* con información real del sistema.
-
-**Flujo de mensajes:**
-
-```python
-# 1. Usuario escribe → se agrega al historial
-st.session_state.mensajes.append({"role": "user", "content": pregunta})
-
-# 2. Se construye el prompt con todo el contexto
-prompt_bot = f"""
-Eres un asistente musical...
-Contexto actual de conversacion: {contexto},
-contexto de recomendaciones: {contexto_recomendaciones}.
-"""
-
-# 3. Se llama a chat_bot() → Groq LLM
-respuesta_bot = chat_bot(prompt_bot)
-
-# 4. Respuesta se agrega al historial
-st.session_state.mensajes.append({"role": "assistant", "content": respuesta_bot})
-```
-
-El historial completo se renderiza en cada rerun usando un loop sobre `st.session_state.mensajes`, garantizando que la conversación sea coherente y acumulativa durante toda la sesión.
-
 ---
 
 ### 4.6 Interfaz (Streamlit)
