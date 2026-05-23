@@ -1,3 +1,4 @@
+<img width="1517" height="134" alt="pipeline" src="https://github.com/user-attachments/assets/66dad9d5-fc9a-4a88-bbba-6837ed3dc087" />
 # Recomendador de Música con IA
 ### Clasificación + NLP + Búsqueda por Similitud
 
@@ -44,29 +45,8 @@ Desarrollar un sistema de recomendación musical basado en inteligencia artifici
 
 El sistema sigue un pipeline secuencial que integra procesamiento de lenguaje natural, clasificación supervisada y búsqueda por similitud:
 
-```
-Descripción del usuario
-        │
-        ▼
-   LLM (Groq / Gemini)
-   Traducción a features numéricos
-        │
-        ▼
-   Extracción de Features
-   (valence, energy, tempo, danceability, ...)
-        │
-        ▼
-   Clasificador Random Forest
-   → Género predicho
-   → Popularidad predicha
-        │
-        ▼
-   KNN con Similitud Coseno
-   sobre el dataset escalado
-        │
-        ▼
-   Top 5 Canciones Recomendadas
-```
+<img width="1517" height="134" alt="pipeline" src="https://github.com/user-attachments/assets/e11128d2-739d-49e5-8b48-9cd4ae115b1b" />
+
 
 **NLP:** El modelo de lenguaje transforma texto libre del usuario en un vector numérico de 10 dimensiones, correspondiente a las audio features de Spotify.
 
@@ -159,7 +139,7 @@ Se aplica `StandardScaler` ajustado únicamente sobre el set de entrenamiento pa
 
 La función `recomendar_canciones(features_dict, df, n=5)`:
 
-1. Construye un vector de query a partir del diccionario de features inferidos por el LLM (los no inferidos se rellenan con `DEFAULTS`).
+1. Construye un vector de query a partir del diccionario de features inferidos por el LLM.
 2. Escala el vector con el mismo `scaler.pkl` del entrenamiento.
 3. Escala todo el dataset.
 4. Entrena un `NearestNeighbors(n_neighbors=5, metric="cosine")` sobre el dataset escalado.
@@ -268,7 +248,7 @@ La aplicación `app.py` presenta:
 
 El clasificador de género presentó overfitting severo: 96% en entrenamiento vs. 19% en test. Aunque el 19% supera marginalmente el baseline aleatorio (16%), la diferencia entre splits evidencia que el modelo memoriza patrones del conjunto de entrenamiento sin generalizar bien.
 
-Esto se explica porque los audio features de alto nivel de Spotify —diseñados para ser interpretados por humanos— tienen límites para separar géneros musicalmente distintos. Por ejemplo, el `energy` de una canción de rock y una de electrónica puede ser idéntico, aunque pertenezcan a géneros completamente diferentes. Tzanetakis & Cook (2002) demostraron que la clasificación robusta de géneros requiere features espectrales de bajo nivel: coeficientes MFCC, centroide espectral y contenido rítmico extraídos directamente del audio crudo. Nuestro sistema, al depender exclusivamente de features precalculados por Spotify, no tiene acceso a esa información.
+Esto se explica porque los audio features de alto nivel de Spotify tienen límites para separar géneros musicalmente distintos. Por ejemplo, el `energy` de una canción de rock y una de electrónica puede ser idéntico, aunque pertenezcan a géneros completamente diferentes. Tzanetakis & Cook (2002) demostraron que la clasificación robusta de géneros requiere features espectrales de bajo nivel: coeficientes MFCC y contenido rítmico extraídos directamente del audio crudo. Nuestro sistema, al depender exclusivamente de features precalculados por Spotify, no tiene acceso a esa información.
 
 ### 6.2 Clasificador de popularidad
 
@@ -288,8 +268,8 @@ A pesar de la limitación del clasificador de género, el pipeline completo gene
 | Historial de escucha | ✓ | ✗ |
 | Descripción en lenguaje natural | ✗ | ✓ |
 
-Nuestro sistema aporta una ventaja diferencial concreta: permite la entrada en lenguaje natural, resolviendo el problema de *cold-start* para usuarios nuevos. La integración de un LLM como puente semántico es una contribución que los sistemas comerciales no ofrecen de forma directa.
-
+Nuestro sistema aporta una ventaja diferencial concreta: permite la entrada en lenguaje natural, dandole mas control al usuario de que escuchar, en vez de adoptar un flujo de solo recomendacion, el agente y el usuario pueden entablar una comunicacion que le permite encontrar canciones de lo que prefiera. 
+Nuestro sistema tiene una ventaja clara: permite que el usuario escriba en lenguaje natural lo que quiere escuchar. En vez de usar solo recomendaciones automáticas, el usuario toma control de lo que desea escuchar y el sistema adopta un rol de asistente musical permitiendole encontrar canciones según sus gustos, emociones o cualquier idea que tenga en mente.
 ---
 
 ## Referencias
