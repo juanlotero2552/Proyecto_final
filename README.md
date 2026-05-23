@@ -1,4 +1,3 @@
-<img width="1517" height="134" alt="pipeline" src="https://github.com/user-attachments/assets/66dad9d5-fc9a-4a88-bbba-6837ed3dc087" />
 # Recomendador de Música con IA
 ### Clasificación + NLP + Búsqueda por Similitud
 
