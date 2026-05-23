@@ -266,10 +266,9 @@ A pesar de la limitación del clasificador de género, el pipeline completo gene
 | Metadata y playlists | ✓ | ✗ |
 | Historial de escucha | ✓ | ✗ |
 | Descripción en lenguaje natural | ✗ | ✓ |
-
-Nuestro sistema aporta una ventaja diferencial concreta: permite la entrada en lenguaje natural, dandole mas control al usuario de que escuchar, en vez de adoptar un flujo de solo recomendacion, el agente y el usuario pueden entablar una comunicacion que le permite encontrar canciones de lo que prefiera. 
-Nuestro sistema tiene una ventaja clara: permite que el usuario escriba en lenguaje natural lo que quiere escuchar. En vez de usar solo recomendaciones automáticas, el usuario toma control de lo que desea escuchar y el sistema adopta un rol de asistente musical permitiendole encontrar canciones según sus gustos, emociones o cualquier idea que tenga en mente.
 ---
+En **conclusión**, Nuestro sistema aporta una ventaja diferencial concreta: permite la entrada en lenguaje natural, dandole mas control al usuario de que escuchar, en vez de adoptar un flujo de solo recomendacion, el agente y el usuario pueden entablar una comunicacion que le permite encontrar canciones de lo que prefiera. 
+Nuestro sistema tiene una ventaja clara: permite que el usuario escriba en lenguaje natural lo que quiere escuchar. En vez de usar solo recomendaciones automáticas, el usuario toma control de lo que desea escuchar y el sistema adopta un rol de asistente musical permitiendole encontrar canciones según sus gustos, emociones o cualquier idea que tenga en mente.
 
 ## Referencias
 
